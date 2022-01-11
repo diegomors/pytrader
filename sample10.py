@@ -50,11 +50,13 @@ def filterLevels(levels: List[float], df: pd.DataFrame, mean: float) -> List[flo
             v = df.iloc[i]['low']
             if isFarFromLevel(v, mean, levels):
                 levels.append(v)
+            if isFarFromLevel(v, mean, l):
                 l.append(v)
         elif isResistance(df, i):
             v = df.iloc[i]['high']
             if isFarFromLevel(v, mean, levels):
                 levels.append(v)
+            if isFarFromLevel(v, mean, l):
                 l.append(v)
     return l
 
